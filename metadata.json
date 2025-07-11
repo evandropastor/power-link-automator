@@ -1,5 +1,6 @@
 {
   "name": "Power Link Automator",
   "description": "Uma aplicação para adicionar links de URL clicáveis a qualquer arquivo PDF. Envie seu documento, desenhe seções em qualquer página, atribua URLs e exporte um novo PDF interativo.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "prompt": ""
 }

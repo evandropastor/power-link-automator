@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { AnnotationsMap, AnnotationRect } from '../types';
 import PageRenderer from './PageRenderer';
@@ -24,24 +23,20 @@ export default function PdfEditor({
 
   return (
     <div className="w-full h-full flex justify-center overflow-y-auto bg-slate-200 dark:bg-slate-700 rounded-lg">
-      <div className="flex flex-col items-center gap-8 py-8 w-full">
+      <div className="flex flex-col items-center gap-8 py-8 w-full max-w-5xl px-2">
         {pageNumbers.map(pageNumber => (
-          <div key={pageNumber} className="bg-white dark:bg-slate-800 shadow-xl rounded-lg p-4 flex flex-col items-center">
-            <h3 className="text-lg font-semibold mb-4 text-slate-600 dark:text-slate-300">
-              Página {pageNumber}
-            </h3>
-            <PageRenderer
-              pdfDoc={pdfDoc}
-              pageNumber={pageNumber}
-              annotations={annotations[pageNumber] || []}
-              onAddAnnotation={(annotation) => addAnnotation(pageNumber, annotation)}
-              onRemoveAnnotation={(id) => removeAnnotation(pageNumber, id)}
-              onUpdateAnnotation={(annotation) => updateAnnotation(pageNumber, annotation)}
-              zoomLevel={zoomLevel}
-            />
-          </div>
+          <PageRenderer
+            key={pageNumber}
+            pdfDoc={pdfDoc}
+            pageNumber={pageNumber}
+            annotations={annotations[pageNumber] || []}
+            onAddAnnotation={(annotation) => addAnnotation(pageNumber, annotation)}
+            onRemoveAnnotation={(id) => removeAnnotation(pageNumber, id)}
+            onUpdateAnnotation={(annotation) => updateAnnotation(pageNumber, annotation)}
+            zoomLevel={zoomLevel}
+          />
         ))}
-         <p className="py-4 text-md text-slate-600 dark:text-slate-400 font-medium">
+         <p className="py-4 text-md text-slate-600 dark:text-slate-400 font-medium text-center px-4">
             Clique e arraste para criar uma área de link. Clique em uma área para movê-la ou redimensioná-la.
         </p>
       </div>
